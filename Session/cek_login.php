@@ -2,10 +2,12 @@
 session_start();
     include "koneksi.php";
     $id_user = $_POST['id_user'];
+    $captcha = md5($_POST['captcha_code']);
     $pass=md5($_POST['paswd']);
     $sql="SELECT * FROM users WHERE id_user='$id_user' AND password='$pass'";
+    $sql2="UPDATE users SET captcha ='$captcha'";
     if ($_POST["captcha_code"] == $_SESSION["captcha_code"]) {
-    
+    $update=mysqli_query($con, $sql2);
     $login=mysqli_query($con,$sql);
     $ketemu=mysqli_num_rows($login);
     $r= mysqli_fetch_array($login);
