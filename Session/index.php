@@ -3,6 +3,7 @@
 include_once("koneksi.php");
 // Fetch all users data from database
 $result = mysqli_query($con, "SELECT * FROM mahasiswa ");
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,7 +18,18 @@ $result = mysqli_query($con, "SELECT * FROM mahasiswa ");
         <title>Home</title>
     </head>
     <body>
-    <a href="tambah.php" class="btn btn-primary mt-3">Tambah Data Baru</a><br/><br/>
+    <div class="col">
+        <div class="row">
+            <div class="col-6">
+                
+                <a href="tambah.php" class="btn btn-primary mt-3">Tambah Data Baru</a><br/><br/>
+            </div>
+            <div class="col-6">
+                
+                <a href="lap_mhs.php" target="blank" class="btn btn-primary mt-3">Cetak Data</a><br/><br/>
+            </div>
+        </div>
+    </div>
     <table width='80%' class="border text-center">
     <tr>
     <th class="border">Nim</th> <th class="border">Nama</th> <th class="border">Gender</th> <th class="border">Alamat</th> 
